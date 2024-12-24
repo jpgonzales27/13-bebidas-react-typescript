@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <h1>Buscador de Bebidas</h1>
+      <p className="text-red-400 text-6xl">Buscador de Bebidas</p>
     </>
   );
 }
