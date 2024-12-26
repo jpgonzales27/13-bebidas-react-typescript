@@ -63,6 +63,11 @@ export default function Header() {
               </label>
               <select id="ingredient" name="ingredient" className="p-3 w-full rounded-lg focus:outline-none">
                 <option value="">-- Seleccione --</option>
+                {categories.drinks.map((category) => (
+                  <option key={category.strCategory} value={category.strCategory}>
+                    {category.strCategory}
+                  </option>
+                ))}
               </select>
             </div>
             <input
