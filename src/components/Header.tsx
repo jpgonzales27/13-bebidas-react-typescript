@@ -15,8 +15,6 @@ export default function Header() {
   const categories = useAppStore((state) => state.categories);
   const searchRecipes = useAppStore((state) => state.searchRecipes);
 
-  console.log(categories);
-
   useEffect(() => {
     fetchCategories();
   }, []);
