@@ -1,4 +1,5 @@
 import { StateCreator } from "zustand";
+import { FavoritesSliceType } from "./favoritesSlice";
 export type Notification = {
   text: string;
   error: boolean;
@@ -7,12 +8,28 @@ export type Notification = {
 
 export type NotificationSliceType = {
   notification: Notification;
+  showNotification: (payload: Pick<Notification, "text" | "error">) => void;
 };
 
-export const createNotificationSlice: StateCreator<NotificationSliceType> = (set, get) => ({
+// export const createNotificationSlice: StateCreator<NotificationSliceType> = (set) => ({
+export const createNotificationSlice: StateCreator<
+  NotificationSliceType & FavoritesSliceType,
+  [],
+  [],
+  NotificationSliceType
+> = (set) => ({
   notification: {
     text: "",
     error: false,
     show: false,
+  },
+  showNotification: (payload) => {
+    set({
+      notification: {
+        text: payload.text,
+        error: payload.error,
+        show: true,
+      },
+    });
   },
 });
